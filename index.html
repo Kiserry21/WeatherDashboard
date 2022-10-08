@@ -19,3 +19,37 @@
     <header class="jumbotron bg-dark p-2">
       <h1 class="display-3 text-light text-center">Weather Dashboard</h1>
     </header>
+
+      <!-- Search City form input -->
+      <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-4 card" id="searchHistory">
+                <form class="form-group">
+                    <label for="search-term">Search for a City:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" type="submit" id="searchBtn"><i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div id="previousSearches"></div>
+            </div>
+
+    <!--Current City card-->
+
+    <main class="col-md-8 p-4 card">
+        <section>
+            <div class="card CurrentWeather4" style="width: 100%;">
+
+              <!-- Retrieved data will be dumped here -->
+                    <div class="currentCity ml-2"></div>
+                    <div class="windSpeed ml-2"></div>
+                    <div class="humidity ml-2"></div>
+                    <div class="temperature ml-2"></div>
+                    <div class="uvIndex"></div>
+                    <h6 class="mb-4 ml-2 card" type=text id="uvIndex"> </h6>
+                    <div class="col-md-2 icon"><i id="weatherIcon"></i></div>
+                    </div>
+        </section> 
