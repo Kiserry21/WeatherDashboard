@@ -123,3 +123,37 @@ $(document).ready(function(){
               }
         });           
 } 
+
+// ******************************************* GET UVI INDEX API CALL ******************************************* //              
+    
+    // Using lat and long with get uvIndex and display on Currentweather DOM
+    function getUVindex(lat,long) {  
+                 
+        //Build the URL we need to get the UVI information
+        var queryURL = "https://api.openweathermap.org/data/2.5/onecall?" + "&lat=" + lat + "&lon=" + long + "&appid=" + apiKey;
+    
+        // Here we run our AJAX call to the OpenWeatherMap API
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+            .then(function(responseUVI) {
+                console.log(responseUVI.current.uvi)
+                var uvIndex = responseUVI.current.uvi;
+                //Print UVIndex
+                $("#uvIndex").text("UV Index: " + uvIndex);
+                
+                if (uvIndex <= 2.99) {                  
+                    uvIndex = $("#uvIndex").css({"background-color": "olivedrab", "display": "block", "border-radius": "12px", "padding": "1.5%", "max-width": "20%"});
+                } else if (uvIndex >= 3 & uvIndex <= 5.99) {
+                    uvIndex = $("#uvIndex").css({"background-color": "gold", "display": "block", "border-radius": "12px", "padding": "1.5%", "max-width": "20%"});
+                } else if (uvIndex >= 6 & uvIndex <= 7.99) {
+                    uvIndex = $("#uvIndex").css({"background-color": "darkorange", "display": "block", "border-radius": "12px", "padding": "1.5%", "max-width": "20%"});
+                } else if (uvIndex >= 8) {
+                    uvIndex = $("#uvIndex").css({"background-color": "firebrick", "display": "block", "border-radius": "12px", "padding": "1.5%", "max-width": "20%"});
+                };
+    
+            });
+        } 
+    getWeather("philadelphia");
+    }); 
