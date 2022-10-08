@@ -20,3 +20,23 @@ $(document).ready(function(){
         // Transfer city name when user selects a stored city in the search history
         getWeather(city);
         }
+
+        // Listen to the search button click and create function to get user input/city
+    function getSearchInput(event) {
+        event.preventDefault();
+        $("#previousSearches").empty();
+        // Declare variable for city input
+        var city = $(".form-control").val(); 
+        // Create array of searched cities
+        searchedCitiesArray.push(city);
+        // Create string from searched cities in the searched cities array
+        localStorage.setItem("cities", JSON.stringify(searchedCitiesArray));
+        // Display new searched cities
+        var searchHistoryList = $("<div>").text(city).addClass("selected");
+        $("#searchHistory").append(searchHistoryList);
+        // Clear out search bar when user searches for city
+        $("#searchInput").val("");
+        // Event for ajax calls to to getWeather api function
+        getWeather(city);
+    }
+    
