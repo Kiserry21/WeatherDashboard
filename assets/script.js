@@ -95,3 +95,14 @@ $(document).ready(function(){
                $("#previousSearches").empty();
     
                 var holder= response.list[0];
+
+      // ******************************************* CURRENT WEATHER ******************************************* //              
+    
+                      // Transfer Current Weather content to HTML and retrieve and display icon from weather API
+                         $(".currentCity").html("<h3>" + response.city.name + " " + date_format(holder) + "</h3>").append(
+                            $('<img src=" '+ "http://openweathermap.org/img/wn/"+response.list[0].weather[0].icon+"@2x.png" +' "/>')); 
+                        $(".humidity").text("Humidity: " + holder.main.humidity + " %");
+                        $(".windSpeed").text("Wind Speed: " + holder.wind.speed + " mph");
+                        $(".temperature").text(temp_trans(holder));
+                        // Create coordinate variables for UV Index to retrieve data from the UVindexAPI
+                        getUVindex(response.city.coord.lat, response.city.coord.lon);
