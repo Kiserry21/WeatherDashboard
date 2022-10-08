@@ -53,3 +53,70 @@
                     <div class="col-md-2 icon"><i id="weatherIcon"></i></div>
                     </div>
         </section> 
+
+          <!--5 Day Forecast card-->
+        
+          <section id="forecast">
+            <div class="container"> 
+                <h3 class="row mt-4 ml-4 mb-4">5-Day Forecast</h3>
+                    <div class="row mt-8 ml-8 mb-8">
+                        <div class="card-group">
+                                 <div class="card f1">
+                                    <div class="card-body text-center">
+                                        <!--1 Day Date = CurrentDate -->
+                                        <h6 id="1dayForecast"></h6>
+                                        <div class="row"><i id="1dayIcon"></i></div>
+                                        <text class="row" id="1dayHumidity"> </text> 
+                                        <text class="row" id="1dayTemperature"> </text>
+                                    </div>
+                                </div>
+                                <div class="card col f2">
+                                    <div class="card-body text-center">
+                                        <!--2 Day Date -->
+                                        <h6 id="2dayForecast"></h6>
+                                        <div class="row"><i id="2dayIcon"></i></div>
+                                        <text class="row" id="2dayHumidity"> </text> 
+                                        <text class="row" id="2dayTemperature"> </text>
+                                    </div>
+                                </div>
+                                <div class="card col f3">
+                                    <div class="card-body text-center">
+                                    <!--3 Day Date -->
+                                        <h6 id="3dayForecast"></h6>
+                                        <div class="row"><i id="3dayIcon"></i></div>
+                                        <text class="row" id="3dayHumidity"> </text> 
+                                        <text class="row" id="3dayTemperature"> </text>
+                                    </div>
+                                </div>
+                                <div class="card col f4">
+                                    <div class="card-body text-center">
+                                    <!--4 Day Date -->
+                                        <h6 id="4dayForecast"></h6>
+                                        <div class="row"><i id="4dayIcon"></i></div>
+                                        <text class="row" id="4dayHumidity"> </text> 
+                                        <text class="row" id="4dayTemperature"> </text>
+                                    </div>
+                                </div>
+                                <div class="card col f5">
+                                    <div class="card-body text-center">
+                                    <!--5 Day Date -->
+                                        <h6 id="5dayForecast"></h6>
+                                        <div class="row"><i id="5dayIcon"></i></div>
+                                        <text class="row" id="5dayHumidity"> </text> 
+                                        <text class="row" id="5dayTemperature"> </text>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+            </div>
+        </section>    
+    </main>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="assets/js/weather.js"></script>
+
+</body>
+</html>
