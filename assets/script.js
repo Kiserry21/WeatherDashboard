@@ -39,4 +39,20 @@ $(document).ready(function(){
         // Event for ajax calls to to getWeather api function
         getWeather(city);
     }
-    
+
+    //Create function to display cities search History stored in localStorage
+    function searchHistory() {
+        //Convert string into object using JSON.parse
+        searchedCitiesArray = JSON.parse(localStorage.getItem("cities"));
+        // Use if else statements and for loop to initialise searchedCitiesArray based on search history
+        if (searchedCitiesArray == null) {
+        searchedCitiesArray = [];
+         }
+        //Loop through searched citiies array 
+        for (var i = 0; i < searchedCitiesArray.length; i++) {
+            var displaySearchedCities = searchedCitiesArray[i];
+            // Display searched history and store in local storage
+            var searchHistoryList = $("<div>").text(displaySearchedCities).addClass("selected"); 
+            $("#searchHistory").append(searchHistoryList);
+        }
+    }
