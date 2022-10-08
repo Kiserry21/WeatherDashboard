@@ -1,0 +1,20 @@
+body {
+    background-size: cover;
+    background-image: url("../images/weather_background.jpg");
+  }
+
+
+h6 {
+    color: white;
+}
+
+
+.search {
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+    cursor: pointer;
+}
