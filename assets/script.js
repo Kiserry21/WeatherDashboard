@@ -106,3 +106,20 @@ $(document).ready(function(){
                         $(".temperature").text(temp_trans(holder));
                         // Create coordinate variables for UV Index to retrieve data from the UVindexAPI
                         getUVindex(response.city.coord.lat, response.city.coord.lon);
+
+                         // ******************************************* GET 5 DAY FORECAST ******************************************* //              
+    
+                // Retrieves and displays 5 Day Weather Forecast and associated icon
+                        
+                for(i=1; i<=5; i++){
+                    holder= response.list[(i*8)-1];
+                  
+                    $("#"+ i + "dayForecast").text(date_format(holder));
+                    $("#"+ i + "dayIcon").empty().append($('<img src=" '+ "http://openweathermap.org/img/wn/"+holder.weather[0].icon+".png" +' "/>'));
+                    $("#"+ i + "dayHumidity").text("Humidity: " + holder.main.humidity + " %");
+                    $("#"+ i + "dayTemperature").text(temp_trans(holder));
+
+                    }
+              }
+        });           
+} 
