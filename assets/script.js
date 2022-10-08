@@ -56,3 +56,42 @@ $(document).ready(function(){
             $("#searchHistory").append(searchHistoryList);
         }
     }
+
+     // ******************************************* GET WEATHER API CALL ******************************************* //              
+    
+    // Created apiKey to call the OpenWeatherMap API
+    var apiKey = "a255e2e186c01d1d2696e157bd1540bf";
+    
+    // Current weather function
+    function getWeather (city) {
+
+        // Build the URL needed to query the database of the OpenWeatherMap API
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
+    
+        // Run AJAX GET call to request the OpenWeatherMap API
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            dataType: "jsonp",
+         // Store all of the retrieved data inside of a response object 
+            success: function(response){
+                // Log the queryURL and resulting object
+                console.log(queryURL);
+                console.log(response);
+    
+                    // Retrieve dates
+                    function date_format(dt_string){
+                        var date = new Date(dt_string.dt*1000);
+                        return date.toDateString();
+                    }
+    
+                    // Convert the temperature to fahrenheit
+                    function temp_trans(input){
+                        var temp =  "Temperature: " + ((input.main.temp- 273.15) * 1.80 + 32).toFixed(2) + " F ";
+                        return temp;
+                    }
+            
+               // Empties the divs to get rid of previous searches
+               $("#previousSearches").empty();
+    
+                var holder= response.list[0];
