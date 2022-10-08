@@ -1,7 +1,7 @@
 // Page is ready to run after html is loaded
 $(document).ready(function(){
 
-    // ******************************************* City Input and Search History ******************************************* //              
+// ------------------------------ City Input and Search History -------------------------------- //              
     
     // Display last search history using a for loop, if else statements and localStorage
     var searchedCitiesArray = [];
@@ -57,7 +57,7 @@ $(document).ready(function(){
         }
     }
 
-     // ******************************************* GET WEATHER API CALL ******************************************* //              
+ // ----------------------------- GET WEATHER API CALL ----------------------------------------- //              
     
     // Created apiKey to call the OpenWeatherMap API
     var apiKey = "a255e2e186c01d1d2696e157bd1540bf";
@@ -96,7 +96,7 @@ $(document).ready(function(){
     
                 var holder= response.list[0];
 
-      // ******************************************* CURRENT WEATHER ******************************************* //              
+// ---------------------------- CURRENT WEATHER ------------------------------------ //              
     
                       // Transfer Current Weather content to HTML and retrieve and display icon from weather API
                          $(".currentCity").html("<h3>" + response.city.name + " " + date_format(holder) + "</h3>").append(
@@ -107,7 +107,7 @@ $(document).ready(function(){
                         // Create coordinate variables for UV Index to retrieve data from the UVindexAPI
                         getUVindex(response.city.coord.lat, response.city.coord.lon);
 
-                         // ******************************************* GET 5 DAY FORECAST ******************************************* //              
+// ------------------------------ GET 5 DAY FORECAST ---------------------------------- //              
     
                 // Retrieves and displays 5 Day Weather Forecast and associated icon
                         
@@ -124,7 +124,7 @@ $(document).ready(function(){
         });           
 } 
 
-// ******************************************* GET UVI INDEX API CALL ******************************************* //              
+// ------------------------------ GET UVI INDEX API CALL -------------------------------------- //              
     
     // Using lat and long with get uvIndex and display on Currentweather DOM
     function getUVindex(lat,long) {  
