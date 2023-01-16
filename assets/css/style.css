@@ -58,3 +58,8 @@ h6 {
     margin-right: 1%;
 
 }
+
+.selected:hover {
+    text-decoration: underline;
+    font-size: larger;
+}

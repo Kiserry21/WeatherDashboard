@@ -15,8 +15,10 @@ $(document).ready(function(){
     
     // Display recently searched cities stored in search history
     function storedCities() {
+       
         // Store cities' name value
         var city = $(this)[0].innerHTML;
+       
         // Transfer city name when user selects a stored city in the search history
         getWeather(city);
         }
@@ -52,7 +54,7 @@ $(document).ready(function(){
         for (var i = 0; i < searchedCitiesArray.length; i++) {
             var displaySearchedCities = searchedCitiesArray[i];
             // Display searched history and store in local storage
-            var searchHistoryList = $("<div>").text(displaySearchedCities).addClass("selected"); 
+            var searchHistoryList = $("<button>").text(displaySearchedCities).addClass("selected"); 
             $("#searchHistory").append(searchHistoryList);
         }
     }
@@ -72,11 +74,11 @@ $(document).ready(function(){
         $.ajax({
             url: queryURL,
             method: "GET",
-            dataType: "jsonp",
+            dataType: "json",
          // Store all of the retrieved data inside of a response object 
             success: function(response){
                 // Log the queryURL and resulting object
-                console.log(queryURL);
+                //console.log(queryURL);
                 console.log(response);
     
                     // Retrieve dates
